@@ -4,7 +4,8 @@ let
         Conditions = "closedFlag=false",
         Fields = "id,summary,company",
         OrderBy = "id asc",
-        Response = CWApiRequest(ApiEndpoint, Conditions, Fields, OrderBy, true)
+        ExpandColumnRecords = true,
+        Response = CWApiRequest(ApiEndpoint, Conditions, Fields, OrderBy, ExpandColumnRecords)
     in
         Response
 in
