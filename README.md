@@ -18,4 +18,8 @@ This function will query the specified ConnectWise Manage API based on the param
 
 ## Download
 
+[CWApiRequest](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/src/CWApiRequest.pq)
+
 ## Samples
+
+[Get Open Service Tickets](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/src/SAMPLE_GetOpenServiceTickets.pq)
