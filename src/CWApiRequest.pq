@@ -6,7 +6,7 @@
     Documentation
     -------------
 
-    This function will query the specified ConnectWise Manage API based on the parameters you pass to the function. You must replace the placeholder values listed below.
+    This function will query the specified ConnectWise Manage API based on the parameters you pass to the function.To be able to use the CWApiRequest function provided, you must replace the API placeholder values listed below.
 
     Parameters
     - ApiEndpoint (text) - API endpoint you will be querying (ex: "service/tickets")
