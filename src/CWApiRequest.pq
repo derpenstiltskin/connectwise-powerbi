@@ -18,7 +18,7 @@
     - CWD_CLIENTID - This is your ClientID obtained from the ConnectWise Developer Network: https://developer.connectwise.com
     - CWA_USERNAME - Username for integrator account setup in ConnectWise Automate
     - CWA_PASSWORD - Password for integrator account setup in ConnectWise Automate
-    - CWA_API_URL - URL for your ConnectWise Automate instance API
+    - CWA_API_URL - URL for your ConnectWise Automate instance API (ex: "https://demo.hostedrmm.com/cwa/api/v1/")
     - CWM_AUTH - This value is a base64 encoding of YourCWMCompany+YourApiPublicKey:YourApiPrivateKey
     - CWM_API_URL - URL to your ConnectWise Manage instance API (ex: "https://api-na.myconnectwise.net/v4_6_release/apis/3.0/")
 */
