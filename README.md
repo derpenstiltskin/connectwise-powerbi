@@ -34,11 +34,11 @@ This function can be used for datasets that are pushed to Power BI Online. The o
 
 ## Download
 
-[CWApiRequest](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/src/CWApiRequest.pq)
+[Project Releases](https://github.com/derpenstiltskin/connectwise-powerbi/releases)
 
 ## How To Use
 
-Create a new query in Power BI called CWApiRequest and copy/paste the contents of the file above into the query. Once that's done you can create another query that uses the CWApiRequest function. The samples below show how CWApiRequest can be used.
+Grab the latest release from above. Then create a new query in Power BI called CWApiRequest and copy/paste the contents of the file CWApiRequest.pq into the query. Once that's done you can create another query that uses the CWApiRequest function. The samples below show how CWApiRequest can be used.
 
 I would suggest using [Postman](https://www.postman.com/) or an equivalent REST API explorer to build your queries before using them in Power BI, as you will get better error messages with the HTTP responses.
 
