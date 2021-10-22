@@ -19,7 +19,9 @@ This function will query the specified ConnectWise Manage or Automate API based 
 - Query (record) - Record of query string parameters to send to the API (ex: [conditions='closedFlag=false'])
 - ExpandAll (logical) - Set to true if you want column records automatically expanded (ex: true)
 
-## API Placeholders (Replace these with your values, a couple are in multiple spots)
+## API Placeholders
+
+Replace these with your values, a couple are in multiple spots.
 
 - CWD_CLIENTID - This is your ClientID obtained from the ConnectWise Developer Network: https://developer.connectwise.com
 - CWA_USERNAME - Username for integrator account setup in ConnectWise Automate
@@ -47,9 +49,11 @@ If you have already tried setting up authentication in your PBIX to your Connect
 ## Samples
 
 **ConnectWise Manage**
+
 [Get Open Service Tickets](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/samples/SAMPLE_CWM_GetOpenServiceTickets.pq)
 
 **ConnectWise Automate**
+
 [Get Location Computers](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/samples/SAMPLE_CWA_GetLocationComputers.pq)
 
 ## ConnectWise REST API Documentation
