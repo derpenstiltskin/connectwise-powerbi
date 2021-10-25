@@ -46,7 +46,7 @@ let
                 #"Content-Type" = "application/json",
                 ClientID = "CWD_CLIENTID"
             ],
-            CWARelPath = CWAApiEndpoint & Uri.BuildQueryString(CWAQuery) & "&pagesize=1000&page=" & Number.ToText(CWAPageNumber),
+            CWARelPath = CWAApiEndpoint & "?" & Uri.BuildQueryString(CWAQuery) & "&pagesize=1000&page=" & Number.ToText(CWAPageNumber),
             CWAApiRequestPage = Json.Document(Web.Contents("CWA_API_URL", [Headers = RequestHeaders, RelativePath = CWARelPath]))       
         in
             CWAApiRequestPage,
@@ -56,7 +56,7 @@ let
                 #"Content-Type" = "application/json",
                 ClientID = "CWD_CLIENTID"
             ],
-            CWMRelPath = CWMApiEndpoint & Uri.BuildQueryString(CWMQuery) & "&pagesize=1000&page=" & Number.ToText(CWMPageNumber),
+            CWMRelPath = CWMApiEndpoint & "?" & Uri.BuildQueryString(CWMQuery) & "&pagesize=1000&page=" & Number.ToText(CWMPageNumber),
             CWMApiRequestPage = Json.Document(Web.Contents("CWM_API_URL", [Headers = RequestHeaders, RelativePath = CWMRelPath]))
         in
             CWMApiRequestPage,
