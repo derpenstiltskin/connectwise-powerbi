@@ -1,10 +1,9 @@
 let 
     LocationComputers = let
-        Response = CWApiRequest(
-            "automate",
+        Response = CWAutomateApiRequest(
             "computers",
             [
-                condition = "location.name='Trenzalore'",
+                condition = "location.name='Home Office'",
                 includefields = "id,computername,location",
                 orderby = "computername asc"
             ],

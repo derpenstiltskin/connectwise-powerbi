@@ -1,6 +1,6 @@
-# Connect Power BI to ConnectWise Manage and Automate
+# Power BI Queries for ConnectWise Manage and Automate
 
-This function will query the specified ConnectWise Manage or Automate API based on the parameters you pass to the function. To be able to use the CWApiRequest function provided, you must replace the API placeholder values listed below.
+These Power Queries will perform requests against the ConnectWise Manage and Automate REST APIs.
 
 ## Features
 
@@ -8,31 +8,39 @@ This function will query the specified ConnectWise Manage or Automate API based 
 - Handles retrieving access token from ConnectWise Automate
 - Automatically manages API request paging, no action needed to retrieve over 1000 records
 - Option to automatically expand all return columns that contain records
-- Support for any condition, filtering, sorting the API supports via query string 
+- Support for any condition, filtering, sorting the API supports via query string
+- Handles query responses with null value fields
 - Able to be pushed to Power BI online and have the dataset automatically refresh
 
 
 ## Parameters
 
-- Product (text) - ConnectWise Product API you will be querying (ex: "manage")
-- ApiEndpoint (text) - API endpoint you will be querying (ex: "service/tickets")
+- Resource (text) - API resource you will be querying (Manage ex: "service/tickets"; Automate ex: "computers)
 - Query (record) - Record of query string parameters to send to the API (ex: [conditions='closedFlag=false'])
 - ExpandAll (logical) - Set to true if you want column records automatically expanded (ex: true)
 
-## API Placeholders
+## ConnectWise Manage API Placeholders
 
-Replace these with your values, a couple are in multiple spots.
+Replace these with your values.
 
-- CWD_CLIENTID - This is your ClientID obtained from the ConnectWise Developer Network: https://developer.connectwise.com
-- CWA_USERNAME - Username for integrator account setup in ConnectWise Automate
-- CWA_PASSWORD - Password for integrator account setup in ConnectWise Automate
-- CWA_API_URL - URL for your ConnectWise Automate instance API (ex: "https://demo.hostedrmm.com/cwa/api/v1/")
-- CWM_AUTH - This value is a base64 encoding of YourCWMCompany+YourApiPublicKey:YourApiPrivateKey
-- CWM_API_URL - URL to your ConnectWise Manage instance API (ex: "https://api-na.myconnectwise.net/v4_6_release/apis/3.0/")
+- _CWMANAGE_CLIENTID_ - This is the ClientID obtained from the ConnectWise Developer Network: https://developer.connectwise.com
+- _CWMANAGE_COMPANY_ - Company value for your ConnectWise Manage instance
+- _CWMANAGE_PUBKEY_ - Public key for your ConnectWise Manage API Key
+- _CWMANAGE_PRIVKEY_ - Private key for your ConnectWise Manage API Key
+- _CWMANAGE_API_URL_ - URL for your ConnectWise Manage API instance (ex: "https://api-na.myconnectwise.net/v4_6_release/apis/3.0/")
+
+## ConnectWise Automate API Placeholders
+
+Replace these with your values.
+
+- _CWAUTOMATE_CLIENTID_ - This is the ClientID obtained from the ConnectWise Developer Network: https://developer.connectwise.com
+- _CWAUTOMATE_USERNAME_ - Username for an integrator account in ConnectWise Automate
+- _CWAUTOMATE_PASSWORD_ - Password for an integrator account in ConnectWise Automate
+- _CWAAUTOMATE_API_URL_ - URL for your ConnectWise Automate API instance (ex: "https://demo.hostedrmm.com/cwa/api/v1/")
 
 ## Power BI Online
 
-This function can be used for datasets that are pushed to Power BI Online. The only option you will need to change once you have the dataset in Power BI online, is to modify the authentication settings for the dataset and have it to skip Authentication Checks. Once you have done that, the dataset can be scheduled to refresh automatically.
+These queries can be used for datasets that are pushed to Power BI Online. The only option you will need to change once you have the dataset in Power BI online, is to modify the authentication settings for the dataset to have it to Skip Authentication Checks. With that set, the dataset can be scheduled to refresh automatically.
 
 ## Download
 
@@ -40,25 +48,35 @@ This function can be used for datasets that are pushed to Power BI Online. The o
 
 ## How To Use
 
-Grab the latest release from above. Then create a new query in Power BI called CWApiRequest and copy/paste the contents of the file CWApiRequest.pq into the query. Once that's done you can create another query that uses the CWApiRequest function. The samples below show how CWApiRequest can be used.
+Grab the latest release from above
 
-I would suggest using [Postman](https://www.postman.com/) or an equivalent REST API explorer to build your queries before using them in Power BI, as you will get better error messages with the HTTP responses.
+For ConnectWise Manage Queries:
+- Create a query in Power BI called CWManageApiRequest
+- Copy/Paste the contents of CWManageApiRequest.pq into the query
+- Create a query to call CWManageApiRequest
 
-If you have already tried setting up authentication in your PBIX to your ConnectWise REST API instance, remove that as the CWApiRequest function handles authentication to the API.
+For ConnectWise Automate Queries:
+- Create a query in Power BI called CWAutomateApiRequest
+- Copy/Paste the contents of CWAutomateApiRequest.pq into the query
+- Create a query to call CWAutomateApiRequest
+
+I would suggest using [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/) or an equivalent REST API explorer to build your queries before using them in Power BI, as you will get better error messages for debugging.
+
+If you have already tried setting up authentication in your PBIX to your ConnectWise REST API instance previously, remove that because the CWManageApiRequest and CWAutomateApiRequest queries handle authentication.
 
 ## Samples
 
 **ConnectWise Manage**
 
-[Get Open Service Tickets](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/samples/SAMPLE_CWM_GetOpenServiceTickets.pq)
+[Get Open Service Tickets](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/samples/CWManage_GetOpenServiceTickets.pq)
 
 **ConnectWise Automate**
 
-[Get Location Computers](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/samples/SAMPLE_CWA_GetLocationComputers.pq)
+[Get Location Computers](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/samples/CWAutomate_GetLocationComputers.pq)
 
 ## ConnectWise REST API Documentation
 
-[ConnectWise Developer](https://developer.connectwise.com/Products/Manage/REST)
+[ConnectWise Developer](https://developer.connectwise.com)
 
 ## Special Thanks
 
