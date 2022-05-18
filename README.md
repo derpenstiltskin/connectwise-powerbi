@@ -1,5 +1,9 @@
 # Power BI Queries for ConnectWise Manage and Automate
 
+[![GitHub version](https://badge.fury.io/gh/derpenstiltskin%2Fconnectwise-powerbi.svg)](https://badge.fury.io/gh/derpenstiltskin%2Fconnectwise-powerbi)
+[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/LICENSE.md)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/derpenstiltskin/connectwise-powerbi)](https://github.com/derpenstiltskin/connectwise-powerbi/commits/main)
+
 #### Table of Contents
 
 *   [Overview](#overview)
