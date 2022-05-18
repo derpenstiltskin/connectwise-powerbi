@@ -17,7 +17,7 @@
     - _CWAUTOMATE_CLIENTID_ - This is the ClientID obtained from the ConnectWise Developer Network: https://developer.connectwise.com
     - _CWAUTOMATE_USERNAME_ - Username for an integrator account in ConnectWise Automate
     - _CWAUTOMATE_PASSWORD_ - Password for an integrator account in ConnectWise Automate
-    - _CWAAUTOMATE_API_URL_ - URL for your ConnectWise Automate API instance (ex: "https://demo.hostedrmm.com/cwa/api/v1/")
+    - _CWAUTOMATE_API_URL_ - URL for your ConnectWise Automate API instance (ex: "https://demo.hostedrmm.com/cwa/api/v1/")
 */
 
 let
