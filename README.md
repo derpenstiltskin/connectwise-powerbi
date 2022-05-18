@@ -26,30 +26,21 @@ These Power Queries will perform requests against the ConnectWise Manage and Aut
 - Handles query responses with null value fields
 - Able to be pushed to Power BI online and have the dataset automatically refresh
 
-----------
-
 ## Download
 
 [Project Releases](https://github.com/derpenstiltskin/connectwise-powerbi/releases)
-
-----------
 
 ## Usage
 
 Please refer to [USAGE.md](USAGE.md).
 
-----------
-
 ## Licensing
 
 OneDriveShortcuts is licensed under the [MIT license](LICENSE.md).
 
-----------
-
 ## ConnectWise REST API Documentation
 
 [ConnectWise Developer](https://developer.connectwise.com)
-----------
 
 ## Special Thanks
 
