@@ -22,8 +22,8 @@
 - Replace the following values with your own:
   - _CWMANAGE_CLIENTID_ - This is the ClientID obtained from the ConnectWise Developer Network
   - _CWMANAGE_COMPANY_ - Company value for your ConnectWise Manage instance
-  - _CWMANAGE_PUBKEY_ - Public key for your ConnectWise Manage API Key
-  - _CWMANAGE_PRIVKEY_ - Private key for your ConnectWise Manage API Key
+  - _CWMANAGE_API_PUBKEY_ - Public key for your ConnectWise Manage API Key
+  - _CWMANAGE_API_PRIVKEY_ - Private key for your ConnectWise Manage API Key
   - _CWMANAGE_API_URL_ - URL for your ConnectWise Manage API instance (ex: <https://api-na.myconnectwise.net/v4_6_release/apis/3.0/>)
 - Create a new query in Power BI that uses the CWManageApiRequest query (ex: [Get Open Service Tickets](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/samples/CWManage_GetOpenServiceTickets.pq))
 
