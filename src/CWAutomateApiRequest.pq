@@ -12,37 +12,19 @@
     - Resource (text) - ConnectWire Manage API endpoint you will be querying (ex: "service/tickets")
     - Query (record) - Record of query string parameters to send to the API (ex: [conditions='closedFlag=false'])
     - ExpandAll (logical) - Set to true if you want column records automatically expanded (ex: true)
+    - Token (text) - API token from running CWAutomateApiTokenRequest()
 
     API Placeholders (Replace these with your values)
     - _CWAUTOMATE_CLIENTID_ - This is the ClientID obtained from the ConnectWise Developer Network: https://developer.connectwise.com
-    - _CWAUTOMATE_USERNAME_ - Username for an integrator account in ConnectWise Automate
-    - _CWAUTOMATE_PASSWORD_ - Password for an integrator account in ConnectWise Automate
     - _CWAUTOMATE_API_URL_ - URL for your ConnectWise Automate API instance (ex: "https://demo.hostedrmm.com/cwa/api/v1/")
 */
 
 let
-    CWAutomateApiRequest = (Resource as text, Query as record, ExpandAll as logical) => let
+    CWAutomateApiRequest = (Resource as text, Query as record, ExpandAll as logical, Token as text) => let
         RequestPage = (R as text, Q as record, PN as number) => let
             ClientId = "_CWAUTOMATE_CLIENTID_",
-            Username = "_CWAUTOMATE_USERNAME_",
-            Password = "_CWAUTOMATE_PASSWORD_",
-            AuthHeaders = [
-                #"Content-Type" = "application/json",
-                #"ClientId" = ClientId
-            ],
-            AuthRelPath = "apitoken",
-            AuthBody = Json.FromValue([
-                Username = Username,
-                Password = Password
-            ]),
-            AuthResponse = Json.Document(Web.Contents("_CWAUTOMATE_API_URL_", [
-                Headers = AuthHeaders,
-                RelativePath = AuthRelPath,
-                Content = AuthBody
-            ])),
-            Auth = Record.Field(AuthResponse, "AccessToken"),
             Headers = [
-                #"Authorization" = "Bearer " & Auth,
+                #"Authorization" = "Bearer " & Token,
                 #"Content-Type" = "application/json",
                 #"ClientId" = ClientId
             ],
