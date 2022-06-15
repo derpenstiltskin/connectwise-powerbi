@@ -1,5 +1,6 @@
 let 
     LocationComputers = let
+        Token = CWAutomateApiTokenRequest(),
         Response = CWAutomateApiRequest(
             "computers",
             [
