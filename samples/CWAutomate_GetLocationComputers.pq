@@ -8,7 +8,8 @@ let
                 includefields = "id,computername,location",
                 orderby = "computername asc"
             ],
-            true)
+            true,
+            Token)
     in
         Response
 in
