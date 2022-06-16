@@ -2,7 +2,6 @@
 
 #### Table of Contents
 *   [How To Use](#how-to-use)
-*   [Parameters](#parameters)
 *   [Power BI Online](#power-bi-online)
 *   [Other Notes](#other-notes)
 
@@ -29,26 +28,44 @@
 
 ----------
 
+## CWManageApiRequest Parameters
+
+- Resource (text) - API resource you will be querying (Manage ex: "service/tickets"; Automate ex: "computers)
+- Query (record) - Record of query string parameters to send to the API (ex: [conditions='closedFlag=false'])
+- ExpandAll (logical) - Set to true if you want column records automatically expanded (ex: true)
+
+----------
+
 ### ConnectWise Automate
 
 - Create a User Class in ConnectWise Automate with the permission required for your queries
 - Create a User in ConnectWise Automate with the Integrator box checked and is assigned the User Class you created
 - Create a new query in Power BI
 - Copy/paste the query from CWAutomateApiRequest.pq into the query you just created
-- Replace the following values with your own:
   - _CWAUTOMATE_CLIENTID_ - This is the ClientID obtained from the ConnectWise Developer Network
   - _CWAUTOMATE_USERNAME_ - Username for an integrator account in ConnectWise Automate
   - _CWAUTOMATE_PASSWORD_ - Password for an integrator account in ConnectWise Automate
   - _CWAUTOMATE_API_URL_ - URL for your ConnectWise Automate API instance (ex: <https://demo.hostedrmm.com/cwa/api/v1/>)
-- Create a new query in Power BI that uses the CWAutomateApiRequest query (ex: [Get Location Computers](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/samples/CWAutomate_GetLocationComputers.pq))
+- Copy/paste the query from CWAutomateApiTokenRequest.pq into the query you just created
+- Replace the following values with your own:
+  - _CWAUTOMATE_CLIENTID_ - This is the ClientID obtained from the ConnectWise Developer Network
+  - _CWAUTOMATE_API_URL_ - URL for your ConnectWise Automate API instance (ex: <https://demo.hostedrmm.com/cwa/api/v1/>)
+- Create a new query in Power BI that uses the CWAutomateApiTokenRequest and CWAutomateApiRequest queries (ex: [Get Location Computers](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/samples/CWAutomate_GetLocationComputers.pq))
 
 ----------
 
-## Parameters
+## CWAutomateApiRequest Parameters
 
 - Resource (text) - API resource you will be querying (Manage ex: "service/tickets"; Automate ex: "computers)
 - Query (record) - Record of query string parameters to send to the API (ex: [conditions='closedFlag=false'])
 - ExpandAll (logical) - Set to true if you want column records automatically expanded (ex: true)
+- Token (text) - Token returned from CWAutomateApiTokenRequest
+
+----------
+
+## CWAutomateApiTokenRequest Parameters
+
+None
 
 ----------
 
