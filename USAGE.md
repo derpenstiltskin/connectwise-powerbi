@@ -28,7 +28,7 @@
 
 ----------
 
-## CWManageApiRequest Parameters
+### CWManageApiRequest Parameters
 
 - Resource (text) - API resource you will be querying (Manage ex: "service/tickets"; Automate ex: "computers)
 - Query (record) - Record of query string parameters to send to the API (ex: [conditions='closedFlag=false'])
@@ -54,7 +54,7 @@
 
 ----------
 
-## CWAutomateApiRequest Parameters
+### CWAutomateApiRequest Parameters
 
 - Resource (text) - API resource you will be querying (Manage ex: "service/tickets"; Automate ex: "computers)
 - Query (record) - Record of query string parameters to send to the API (ex: [conditions='closedFlag=false'])
@@ -63,7 +63,7 @@
 
 ----------
 
-## CWAutomateApiTokenRequest Parameters
+### CWAutomateApiTokenRequest Parameters
 
 None
 
