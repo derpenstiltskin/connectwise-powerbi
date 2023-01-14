@@ -69,6 +69,25 @@ None
 
 ----------
 
+### ConnectWise RMM Modern API
+
+- Generate an API key in the Reporting API page in ConnectWise RMM
+- Copy/paste the query from CWRmmApiRequest.pq into the query you just created
+  - _CWRMM_API_KEY_ - This is the API key generated in the Reporting API page of RMM
+  - _CWRMM_API_URL_ - URL for your ConnectWise RMM Modern API instance (ex: <https://api.itsupport247.net/reporting/v1/>)
+- Create a new query in Power BI that uses the CWManageApiRequest query (ex: [Get Sites](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/samples/CWRmm_GetSites.pq))
+
+----------
+
+### CWAutomateApiRequest Parameters
+
+- Resource (text) - API resource you will be querying (Manage ex: "service/tickets"; Automate ex: "computers)
+- Query (record) - Record of query string parameters to send to the API (ex: [conditions='closedFlag=false'])
+- ExpandAll (logical) - Set to true if you want column records automatically expanded (ex: true)
+- Token (text) - Token returned from CWAutomateApiTokenRequest
+
+----------
+
 ## Power BI Online
 
 These queries can be used for datasets that are pushed to Power BI Online. The only option you will need to change once you have the dataset in Power BI online, is to modify the authentication settings for the dataset to have it to Skip Authentication Checks. With that set, the dataset can be scheduled to refresh automatically.

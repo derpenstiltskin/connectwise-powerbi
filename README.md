@@ -18,15 +18,15 @@
 
 ## Overview
 
-These Power Queries will perform requests against the ConnectWise Manage and Automate REST APIs.
+These Power Queries will perform requests against the ConnectWise ecosystem REST APIs.
 
 ## Features
 
-- Handles authentication to the ConnectWise Manage and Automate REST APIs
+- Handles authentication to the ConnectWise Manage, Automate, RMM REST APIs
 - Handles retrieving access token from ConnectWise Automate
-- Automatically manages API request paging, no action needed to retrieve over 1000 records
-- Option to automatically expand all return columns that contain records
-- Support for any condition, filtering, sorting the API supports via query string
+- Automatically manages API request paging on applicable APIs, no action needed to retrieve over 1000 records
+- Option to automatically expand all return columns that contain records from applicable APIs
+- Support for any condition, filtering, sorting that is applicable to the API
 - Handles query responses with null value fields
 - Able to be pushed to Power BI online and have the dataset automatically refresh
 
@@ -40,7 +40,7 @@ Please refer to [USAGE.md](USAGE.md).
 
 ## Licensing
 
-OneDriveShortcuts is licensed under the [MIT license](LICENSE.md).
+ConnectWise-PowerBI is licensed under the [MIT license](LICENSE.md).
 
 ## ConnectWise REST API Documentation
 
