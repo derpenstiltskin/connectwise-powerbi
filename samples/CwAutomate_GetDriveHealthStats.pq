@@ -4,8 +4,8 @@
 */
 let 
     DriveHealth = let
-        Token = CWAutomateApiTokenRequest(),
-        Computers = CWAutomateApiRequest(
+        Token = CwAutomateApiTokenRequest(),
+        Computers = CwAutomateApiRequest(
             "computers",
             [
                 includefields = "Id,ComputerName"
@@ -14,7 +14,7 @@ let
             Token
         ),
         ComputersIndexed = Table.TransformColumnTypes(Computers, {"Id", type number}),
-        Drives = CWAutomateApiRequest(
+        Drives = CwAutomateApiRequest(
             "computers/drives",
             [
                 includefields = "DriveId,ComputerId"
@@ -24,9 +24,9 @@ let
         DrivesIndexed = Table.TransformColumnTypes(Drives, {{"ComputerId", type number},{"DriveId", type number}}),
         ComputerDrives = Table.RemoveColumns(Table.Join(ComputersIndexed, "Id", DrivesIndexed, "ComputerId", JoinKind.FullOuter), "Id"),
         DriveHealthList = List.RemoveNulls(List.Generate(
-            () => [Response = try CWAutomateApiRequest("drives/"&Number.ToText(ComputerDrives{0}[DriveId])&"/drivestats/daily", [], true, Token) otherwise null, RowNumber = 0],
+            () => [Response = try CwAutomateApiRequest("drives/"&Number.ToText(ComputerDrives{0}[DriveId])&"/drivestats/daily", [], true, Token) otherwise null, RowNumber = 0],
             each [RowNumber] < Table.RowCount(ComputerDrives),
-            each [Response = try CWAutomateApiRequest("drives/"&Number.ToText(ComputerDrives{RowNumber}[DriveId])&"/drivestats/daily", [], true, Token) otherwise null, RowNumber = [RowNumber] + 1],
+            each [Response = try CwAutomateApiRequest("drives/"&Number.ToText(ComputerDrives{RowNumber}[DriveId])&"/drivestats/daily", [], true, Token) otherwise null, RowNumber = [RowNumber] + 1],
             each [Response])),
         DriveHealth = Table.FromList(DriveHealthList, Splitter.SplitByNothing(), {"Column1"}, null, ExtraValues.Error),
         DriveHealthEx1 = Table.ExpandListColumn(DriveHealth, "Column1"),

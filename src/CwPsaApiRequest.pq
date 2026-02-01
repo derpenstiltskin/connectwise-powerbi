@@ -1,35 +1,41 @@
 /*
-    CWAutomateApiRequest
+    CwPsaApiRequest
     Author: Dustin Riley <dustin@derpenstiltskin.com>
     Git Repo: https://github.com/derpenstiltskin/connectwise-powerbi
 
     Documentation
     -------------
 
-    This Power Query will perform requests against the ConnectWise Automate REST API.
+    This Power Query will perform requests against the ConnectWise PSA REST API.
 
     Parameters
-    - Resource (text) - ConnectWire Manage API endpoint you will be querying (ex: "service/tickets")
+    - Resource (text) - ConnectWise PSA API endpoint you will be querying (ex: "service/tickets")
     - Query (record) - Record of query string parameters to send to the API (ex: [conditions='closedFlag=false'])
     - ExpandAll (logical) - Set to true if you want column records automatically expanded (ex: true)
-    - Token (text) - API token from running CWAutomateApiTokenRequest()
 
     API Placeholders (Replace these with your values)
-    - _CWAUTOMATE_CLIENTID_ - This is the ClientID obtained from the ConnectWise Developer Network: https://developer.connectwise.com
-    - _CWAUTOMATE_API_URL_ - URL for your ConnectWise Automate API instance (ex: "https://demo.hostedrmm.com/cwa/api/v1/")
+    - _CWPSA_CLIENTID_ - This is the ClientID obtained from the ConnectWise Developer Network: https://developer.connectwise.com
+    - _CWPSA_COMPANY_ - Company value for your ConnectWise PSA instance
+    - _CWPSA_API_PUBKEY_ - Public key for your ConnectWise PSA API Key
+    - _CWPSA_API_PRIVKEY_ - Private key for your ConnectWise PSA API Key
+    - _CWPSA_API_URL_ - URL for your ConnectWise PSA API instance (ex: "https://api-na.myconnectwise.net/v4_6_release/apis/3.0/")
 */
 
 let
-    CWAutomateApiRequest = (Resource as text, Query as record, ExpandAll as logical, Token as text) => let
+    CwPsaApiRequest = (Resource as text, Query as record, ExpandAll as logical) => let
         RequestPage = (R as text, Q as record, PN as number) => let
-            ClientId = "_CWAUTOMATE_CLIENTID_",
+            ClientId = "_CWPSA_CLIENTID_",
+            Company = "_CWPSA_COMPANY_",
+            PublicKey = "_CWPSA_API_PUBKEY_",
+            PrivateKey = "_CWPSA_API_PRIVKEY_",
+            Auth = Binary.ToText(Text.ToBinary(Company & "+" & PublicKey & ":" & PrivateKey), BinaryEncoding.Base64),
             Headers = [
-                #"Authorization" = "Bearer " & Token,
+                #"Authorization" = "Basic " & Auth,
                 #"Content-Type" = "application/json",
                 #"ClientId" = ClientId
             ],
             RelPath = R & "?" & Uri.BuildQueryString(Q) & "&pagesize=1000&page=" & Number.ToText(PN),
-            RequestPage = Json.Document(Web.Contents("_CWAUTOMATE_API_URL_", [Headers = Headers, RelativePath = RelPath]))
+            RequestPage = Json.Document(Web.Contents("_CWPSA_API_URL_", [Headers = Headers, RelativePath = RelPath]))
         in
             RequestPage,
         ExpandColumnRecord = (TableToExpand as table, optional ColumnNumber as number) => let
@@ -73,12 +79,12 @@ let
         ColumnNames = List.Distinct(List.Combine(List.Transform(ColumnContents,
                 each if _ is record then Record.FieldNames(_) else {}))),
         DataTableEx2 = Table.ExpandRecordColumn(DataTableEx1, "Column1", ColumnNames),
-        CWAutomateApiResponse = if (ExpandAll = true)
+        CwPsaApiResponse = if (ExpandAll = true)
             then
                 @ExpandColumnRecord(DataTableEx2)
             else
                 DataTableEx2
     in
-        CWAutomateApiResponse
+        CwPsaApiResponse
 in
-    CWAutomateApiRequest
+    CwPsaApiRequest

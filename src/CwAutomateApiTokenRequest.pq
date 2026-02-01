@@ -1,5 +1,5 @@
 /*
-    CWAutomateApiTokenRequest
+    CwAutomateApiTokenRequest
     Author: Dustin Riley <dustin@derpenstiltskin.com>
     Git Repo: https://github.com/derpenstiltskin/connectwise-powerbi
 
@@ -16,7 +16,7 @@
 */
 
 let
-    CWAutomateApiTokenRequest = () => let
+    CwAutomateApiTokenRequest = () => let
         ClientId = "_CWAUTOMATE_CLIENTID_",
         Username = "_CWAUTOMATE_USERNAME_",
         Password = "_CWAUTOMATE_PASSWORD_",
@@ -38,4 +38,4 @@ let
     in
         Token
 in
-    CWAutomateApiTokenRequest
+    CwAutomateApiTokenRequest

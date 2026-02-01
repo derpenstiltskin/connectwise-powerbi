@@ -1,4 +1,4 @@
-# Power BI Queries for the ConnectWise Ecosystem
+# ConnectWise PSA & Automate PowerBI Queries
 
 [![GitHub version](https://badge.fury.io/gh/derpenstiltskin%2Fconnectwise-powerbi.svg)](https://badge.fury.io/gh/derpenstiltskin%2Fconnectwise-powerbi)
 [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/derpenstiltskin/connectwise-powerbi/blob/main/LICENSE.md)
@@ -22,13 +22,13 @@ These Power Queries will perform requests against the ConnectWise ecosystem REST
 
 ## Features
 
-- Handles authentication to the ConnectWise Manage, Automate, RMM REST APIs
+- Handles authentication to the ConnectWise PSA & Automate
 - Handles retrieving access token from ConnectWise Automate
 - Automatically manages API request paging on applicable APIs, no action needed to retrieve over 1000 records
 - Option to automatically expand all return columns that contain records from applicable APIs
 - Support for any condition, filtering, sorting that is applicable to the API
 - Handles query responses with null value fields
-- Able to be pushed to Power BI online and have the dataset automatically refresh
+- Able to be pushed to PowerBI online and have the dataset automatically refresh
 
 ## Download
 
@@ -40,7 +40,7 @@ Please refer to [USAGE.md](USAGE.md).
 
 ## Licensing
 
-ConnectWise-PowerBI is licensed under the [MIT license](LICENSE.md).
+This project is licensed under the [MIT license](LICENSE.md).
 
 ## ConnectWise REST API Documentation
 
@@ -48,4 +48,4 @@ ConnectWise-PowerBI is licensed under the [MIT license](LICENSE.md).
 
 ## Special Thanks
 
-The basis of this function is based on the work that [Quinntin Comer](https://comertechnology.com/) did for this [article](https://comertechnology.com/cw-manage-getting-started-with-powerbi-the-update/).
+The basis of this function is based on work from [Quinntin Comer](https://comertechnology.com/).

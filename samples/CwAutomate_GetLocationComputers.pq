@@ -1,7 +1,7 @@
 let 
     LocationComputers = let
-        Token = CWAutomateApiTokenRequest(),
-        Response = CWAutomateApiRequest(
+        Token = CwAutomateApiTokenRequest(),
+        Response = CwAutomateApiRequest(
             "computers",
             [
                 condition = "location.name='Home Office'",

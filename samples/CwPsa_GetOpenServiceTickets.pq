@@ -1,6 +1,6 @@
 let 
     OpenServiceTickets = let
-        Response = CWManageApiRequest(
+        Response = CwPsaApiRequest(
             "service/tickets",
             [
                 conditions = "closedFlag=false",
